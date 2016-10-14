@@ -45,7 +45,7 @@ build() {
     --otr=plugin \
     --skype=plugin \
     --purple=1 \
-	--jabber=1
+    --jabber=1
 
   make
 }

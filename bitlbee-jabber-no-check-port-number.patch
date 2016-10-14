@@ -1,0 +1,14 @@
+--- bitlbee-3.4.2/protocols/jabber/jabber.c	2016-03-20 00:37:33.000000000 +0100
++++ bitlbee-3.4.2/protocols/jabber/jabber.c	2016-10-14 14:07:06.888000000 +0200
+@@ -259,9 +259,9 @@
+ 	}
+ 
+ 	if (jabber_port_list[i] == 0) {
+-		imcb_log(ic, "Illegal port number");
++		/*imcb_log(ic, "Illegal port number");
+ 		imc_logout(ic, FALSE);
+-		return;
++		return;*/
+ 	}
+ 
+ 	/* For non-SSL connections we can try to use the port # from the SRV

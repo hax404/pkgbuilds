@@ -23,12 +23,19 @@ optdepends=('skype4py: to use skyped'
 provides=("bitlbee=${pkgver}")
 conflicts=('bitlbee')
 source=("http://get.bitlbee.org/src/${_pkgname}-${pkgver}.tar.gz"
-        'bitlbee.tmpfiles')
+        'bitlbee.tmpfiles'
+        'bitlbee-jabber-no-check-port-number.patch')
 sha1sums=('c93eab4161754235a2bc04ba3dc0fc66ce2d34f2'
-          '3695ed2fe22436c4d0fc3ead829f7d1f89bc491c')
+          '3695ed2fe22436c4d0fc3ead829f7d1f89bc491c'
+          '2c563334132a74c08b08d9c56a38c954d3ff3225')
 backup=('etc/bitlbee/bitlbee.conf'
         'etc/bitlbee/motd.txt')
 install=${_pkgname}.install
+
+prepare() {
+  cd $_pkgname-$pkgver
+  patch -Np1 -i "${srcdir}/bitlbee-jabber-no-check-port-number.patch"
+}
 
 build() {
   cd "${_pkgname}-$pkgver"
